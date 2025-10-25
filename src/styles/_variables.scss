@@ -1,0 +1,39 @@
+$dark-green: #355952;
+$golden: #EAB63E;
+$cream: #FAF6E7;
+$coral: #E37769;
+
+$primary: $golden;
+$secondary: $coral;
+$accent: $dark-green;
+$background: $cream;
+$text-primary: $dark-green;
+$text-secondary: $coral;
+$surface: rgba(53, 89, 82, 0.1);
+
+$gradient-primary: linear-gradient(135deg, $golden 0%, $coral 100%);
+$gradient-accent: linear-gradient(135deg, $dark-green 0%, $golden 100%);
+$gradient-surface: linear-gradient(135deg, $cream 0%, $golden 50%, $coral 100%);
+
+$font-primary: "Libre Baskerville", serif;
+$font-heading: "Libertinus Serif", serif;
+
+$spacing-xs: 0.5rem;
+$spacing-sm: 1rem;
+$spacing-md: 1.5rem;
+$spacing-lg: 2rem;
+$spacing-xl: 3rem;
+$spacing-xxl: 4rem;
+
+$breakpoint-sm: 480px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1200px;
+
+$z-navigation: 1000;
+$z-hero: 2;
+$z-overlay: 1;
+
+$transition-fast: 0.2s ease;
+$transition-normal: 0.3s ease;
+$transition-slow: 0.5s ease;

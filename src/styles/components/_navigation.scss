@@ -1,0 +1,189 @@
+@use '../variables' as *;
+
+.navigation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: $z-navigation;
+  background: $dark-green;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid $golden;
+  padding: $spacing-sm 0;
+  transition: all $transition-normal;
+
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 $spacing-lg;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $golden;
+    cursor: pointer;
+    transition: all $transition-normal;
+    font-family: $font-heading;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  &__links {
+    display: flex;
+    gap: $spacing-lg;
+    align-items: center;
+
+    &--desktop {
+      @media (max-width: $breakpoint-md) {
+        display: none;
+      }
+    }
+  }
+
+  &__link {
+    background: $background;
+    border: none;
+    color: $dark-green;
+    font-size: 0.9rem;
+    font-weight: 700;
+    font-family: $font-heading;
+    cursor: pointer;
+    padding: $spacing-xs $spacing-sm;
+    border-radius: 25px;
+    transition: all $transition-normal;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: $golden;
+      transition: left $transition-normal;
+      z-index: -1;
+    }
+
+    &:hover::before,
+    &--active::before {
+      left: 0;
+    }
+
+    &:hover,
+    &--active {
+      background: $golden !important;
+      color: $coral !important;
+      transform: translateY(-2px);
+    }
+  }
+
+  &__mobile-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: $spacing-xs;
+
+    @media (max-width: $breakpoint-md) {
+      display: flex;
+    }
+
+    span {
+      width: 25px;
+      height: 3px;
+      background: $golden;
+      border-radius: 2px;
+      transition: all $transition-normal;
+      display: block;
+    }
+  }
+
+  &__mobile-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: $dark-green;
+    backdrop-filter: blur(10px);
+    border-top: 1px solid $golden;
+    padding: $spacing-sm 0;
+
+    &-link {
+      display: block;
+      width: 100%;
+      background: $background;
+      border: none;
+      color: $dark-green;
+      font-family: $font-heading;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      padding: $spacing-sm $spacing-lg;
+      text-align: left;
+      transition: all $transition-normal;
+      position: relative;
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 4px;
+        height: 100%;
+        background: $coral;
+        transform: scaleY(0);
+        transition: transform $transition-normal;
+      }
+
+      &:hover::before,
+      &--active::before {
+        transform: scaleY(1);
+      }
+
+      &:hover,
+      &--active {
+        background: $golden;
+        color: $coral;
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-lg) {
+  .navigation {
+    &__container {
+      padding: 0 $spacing-md;
+    }
+    
+    &__links {
+      gap: $spacing-md;
+    }
+    
+    &__link {
+      font-size: 0.8rem;
+      padding: 0.4rem 0.8rem;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .navigation {
+    &__container {
+      padding: 0 $spacing-xs;
+    }
+    
+    &__logo {
+      font-size: 1.1rem;
+    }
+  }
+}

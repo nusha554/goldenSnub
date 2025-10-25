@@ -1,0 +1,171 @@
+@use '../variables' as *;
+
+.join {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  scroll-margin-top: 80px;
+  transition: all $transition-normal;
+  opacity: 0;
+  transform: translateY(50px);
+  animation: fadeInUp 0.8s ease-out forwards;
+  animation-delay: 0.4s;
+
+  &__container {
+    max-width: 1200px;
+    width: 100%;
+    position: relative;
+    z-index: $z-hero;
+  }
+
+  &__content {
+    padding: $spacing-xxl 0;
+    text-align: center;
+  }
+
+  &__title {
+    font-weight: 700;
+    margin-bottom: $spacing-xxl;
+    font-size: 4rem;
+    color: white !important;
+    text-shadow: 0 0 20px $golden, 0 0 40px $golden, 0 0 60px $golden, 3px 3px 6px rgba(0,0,0,0.8);
+    font-family: $font-heading;
+    margin-top: $spacing-xxl;
+    text-align: center;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  &__subtitle {
+    margin-bottom: $spacing-xl;
+    margin-top: $spacing-xxl;
+    font-size: 1.2rem;
+    color: white !important;
+    text-shadow: 0 0 10px $golden, 0 0 20px $golden, 0 0 30px $golden, 2px 2px 4px rgba(0,0,0,0.7);
+  }
+
+  &__description {
+    margin-bottom: $spacing-xl;
+    font-size: 1.2rem;
+    color: white !important;
+    text-shadow: 0 0 10px $golden, 0 0 20px $golden, 0 0 30px $golden, 2px 2px 4px rgba(0,0,0,0.7);
+  }
+}
+
+.social-button {
+  background-color: transparent !important;
+  color: $golden !important;
+  border: 2px solid $golden !important;
+  width: 60px !important;
+  height: 60px !important;
+  min-width: 60px !important;
+  min-height: 60px !important;
+  position: relative !important;
+  transition: all $transition-normal !important;
+  border-radius: 50% !important;
+  padding: 0 !important;
+
+  &__icon {
+    font-size: 24px !important;
+    transition: all $transition-normal !important;
+    width: 24px !important;
+    height: 24px !important;
+    object-fit: contain !important;
+  }
+
+  &__banana {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    font-size: 24px !important;
+    display: none !important;
+    transition: all $transition-normal !important;
+  }
+
+  &:hover {
+    background-color: $golden !important;
+    color: $golden !important;
+    transform: scale(1.05) !important;
+
+    .social-button__icon {
+      display: none !important;
+    }
+
+    .social-button__banana {
+      display: block !important;
+    }
+  }
+
+  &--large {
+    width: 80px !important;
+    height: 80px !important;
+    min-width: 80px !important;
+    min-height: 80px !important;
+
+    .social-button__icon {
+      font-size: 28px !important;
+      width: 28px !important;
+      height: 28px !important;
+      object-fit: contain !important;
+    }
+
+    .social-button__banana {
+      font-size: 28px !important;
+    }
+  }
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: $breakpoint-lg) {
+  .join {
+    &__title {
+      font-size: 3rem;
+    }
+    
+    &__subtitle,
+    &__description {
+      font-size: 1.1rem;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  .join {
+    &__title {
+      font-size: 2.5rem;
+    }
+    
+    &__subtitle,
+    &__description {
+      font-size: 1rem;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .join {
+    padding: $spacing-lg $spacing-sm;
+    
+    &__title {
+      font-size: 2rem;
+      line-height: 1.3;
+      margin-bottom: $spacing-md;
+    }
+    
+    &__subtitle,
+    &__description {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin-bottom: $spacing-sm;
+    }
+  }
+}

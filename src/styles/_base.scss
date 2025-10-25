@@ -1,0 +1,86 @@
+@use './variables' as *;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $font-primary;
+  font-weight: 400;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: $background;
+  min-height: 100vh;
+  color: $text-primary !important;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+  touch-action: manipulation;
+}
+
+.libre-baskerville-regular {
+  font-family: $font-primary;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.libertinus-serif-bold {
+  font-family: $font-heading;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.MuiTypography-root {
+  color: inherit !important;
+}
+
+.MuiTypography-h1,
+.MuiTypography-h2,
+.MuiTypography-h3,
+.MuiTypography-h4,
+.MuiTypography-h5,
+.MuiTypography-h6 {
+  color: inherit !important;
+  font-family: $font-heading !important;
+  font-weight: 700 !important;
+}
+
+.MuiTypography-body1,
+.MuiTypography-body2 {
+  color: inherit !important;
+}
+
+.app {
+  min-height: 100vh;
+  position: relative;
+}
+
+.MuiIconButton-root.social-button {
+  background-color: transparent !important;
+  color: #EAB63E !important;
+  border: 2px solid #EAB63E !important;
+  border-radius: 50% !important;
+  padding: 0 !important;
+  min-width: auto !important;
+  width: 60px !important;
+  height: 60px !important;
+  transition: all 0.3s ease !important;
+
+  &:hover {
+    background-color: #EAB63E !important;
+    color: #EAB63E !important;
+    transform: scale(1.05) !important;
+  }
+
+  &.social-button--large {
+    width: 80px !important;
+    height: 80px !important;
+  }
+}

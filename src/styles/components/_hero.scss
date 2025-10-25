@@ -1,0 +1,188 @@
+@use '../variables' as *;
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  background: $background;
+  transform-style: preserve-3d;
+  padding-top: 80px;
+
+  &__content {
+    position: relative;
+    z-index: $z-hero;
+    text-align: center;
+    max-width: 1200px;
+    padding: $spacing-lg;
+  }
+
+  &__title {
+    font-family: $font-heading;
+    font-size: 4.5rem;
+    font-weight: 700;
+    margin-bottom: $spacing-md;
+    background: $gradient-primary;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    transition: all $transition-normal;
+    cursor: default;
+
+    &:hover {
+      transform: scale(1.02);
+      filter: drop-shadow(0 0 20px rgba(229, 192, 103, 0.5));
+    }
+  }
+
+  &__subtitle {
+    font-family: $font-primary;
+    font-size: 2rem;
+    font-weight: 400;
+    margin-bottom: $spacing-md;
+    color: $text-primary;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+
+  &__description {
+    font-family: $font-primary;
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin-bottom: $spacing-xl;
+    color: $text-secondary;
+    opacity: 0.9;
+    line-height: 1.4;
+    letter-spacing: 0.01em;
+  }
+}
+
+.social-button {
+  background-color: transparent !important;
+  color: $golden !important;
+  border: 2px solid $golden !important;
+  width: 60px !important;
+  height: 60px !important;
+  min-width: 60px !important;
+  min-height: 60px !important;
+  position: relative !important;
+  transition: all $transition-normal !important;
+  border-radius: 50% !important;
+  padding: 0 !important;
+
+  &__icon {
+    font-size: 24px !important;
+    transition: all $transition-normal !important;
+    width: 24px !important;
+    height: 24px !important;
+    object-fit: contain !important;
+  }
+
+  &__banana {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    font-size: 24px !important;
+    display: none !important;
+    transition: all $transition-normal !important;
+  }
+
+  &:hover {
+    background-color: $golden !important;
+    color: $golden !important;
+    transform: scale(1.05) !important;
+
+    .social-button__icon {
+      display: none !important;
+    }
+
+    .social-button__banana {
+      display: block !important;
+    }
+  }
+
+  &--large {
+    width: 80px !important;
+    height: 80px !important;
+    min-width: 80px !important;
+    min-height: 80px !important;
+
+    .social-button__icon {
+      font-size: 28px !important;
+      width: 28px !important;
+      height: 28px !important;
+      object-fit: contain !important;
+    }
+
+    .social-button__banana {
+      font-size: 28px !important;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-lg) {
+  .hero {
+    &__content {
+      padding: $spacing-md;
+    }
+    
+    &__title {
+      font-size: 3.8rem;
+    }
+    
+    &__subtitle {
+      font-size: 1.8rem;
+    }
+    
+    &__description {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  .hero {
+    &__title {
+      font-size: 2.8rem;
+    }
+    
+    &__subtitle {
+      font-size: 1.6rem;
+    }
+    
+    &__description {
+      font-size: 1.1rem;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .hero {
+    &__title {
+      font-size: 2.2rem;
+      line-height: 1.2;
+      margin-bottom: $spacing-sm;
+    }
+    
+    &__subtitle {
+      font-size: 1.4rem;
+      margin-bottom: 0.8rem;
+    }
+    
+    &__description {
+      font-size: 1rem;
+      margin-bottom: $spacing-md;
+    }
+    
+    &__content {
+      padding: $spacing-sm;
+      text-align: center;
+    }
+  }
+}

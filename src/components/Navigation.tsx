@@ -48,25 +48,21 @@ const Navigation: React.FC = () => {
   return (
     <motion.nav
       className="navigation"
-      initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
     >
-      <div className="nav-container">
+      <div className="navigation__container">
         <motion.div 
-          className="nav-logo"
+          className="navigation__logo"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          Golden Snub Monkey Coin
+          Golden Snub Monkey
         </motion.div>
 
-        {/* Desktop Navigation */}
-        <div className="nav-links desktop-nav">
+        <div className="navigation__links navigation__links--desktop">
           {sections.map((section) => (
             <motion.button
               key={section.id}
-              className={`nav-link ${activeSection === section.id ? 'active' : ''}`}
+              className={`navigation__link ${activeSection === section.id ? 'navigation__link--active' : ''}`}
               onClick={() => scrollToSection(section.id)}
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
@@ -77,9 +73,8 @@ const Navigation: React.FC = () => {
           ))}
         </div>
 
-        {/* Mobile Menu Button */}
         <motion.button
-          className="mobile-menu-btn"
+          className="navigation__mobile-toggle"
           onClick={() => setIsOpen(!isOpen)}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
@@ -99,11 +94,10 @@ const Navigation: React.FC = () => {
         </motion.button>
       </div>
 
-      {/* Mobile Navigation */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="mobile-nav"
+            className="navigation__mobile-menu"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
@@ -112,7 +106,7 @@ const Navigation: React.FC = () => {
             {sections.map((section, index) => (
               <motion.button
                 key={section.id}
-                className={`mobile-nav-link ${activeSection === section.id ? 'active' : ''}`}
+                className={`navigation__mobile-menu-link ${activeSection === section.id ? 'navigation__mobile-menu-link--active' : ''}`}
                 onClick={() => scrollToSection(section.id)}
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}

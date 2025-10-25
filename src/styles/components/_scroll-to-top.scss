@@ -1,0 +1,46 @@
+@use '../variables' as *;
+
+.scroll-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 60px;
+  height: 60px;
+  background: $dark-green !important;
+  border: none;
+  border-radius: 50%;
+  color: $golden !important;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: $z-navigation;
+  box-shadow: 0 4px 15px rgba(53, 89, 82, 0.3);
+  transition: all $transition-normal;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background: $coral !important;
+    box-shadow: 0 6px 20px rgba(227, 119, 105, 0.4);
+    transform: translateY(-2px);
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .scroll-to-top {
+    bottom: 1rem;
+    right: 1rem;
+    width: 45px;
+    height: 45px;
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .scroll-to-top {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+}

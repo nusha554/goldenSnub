@@ -1,0 +1,68 @@
+@use './variables' as *;
+@use './base';
+
+@use './components/navigation';
+@use './components/hero';
+@use './components/welcome';
+@use './components/story';
+@use './components/tokenomics';
+@use './components/join';
+@use './components/footer';
+@use './components/scroll-to-top';
+
+.section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  position: relative;
+  scroll-margin-top: 80px;
+  transition: all 0.3s ease;
+}
+
+.section-content {
+  max-width: 800px;
+  text-align: center;
+}
+
+.section-content h2 {
+  font-family: "Libertinus Serif", serif;
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  background: linear-gradient(135deg, #EAB63E 0%, #E37769 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-content p {
+  font-family: "Libre Baskerville", serif;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #E37769;
+  max-width: 600px;
+  margin: 0 auto 3rem auto;
+}
+
+.section-content strong {
+  color: #EAB63E;
+  font-weight: 700;
+}
+
+.section-content em {
+  color: #E37769;
+  font-style: italic;
+}
+
+.section-content blockquote {
+  font-size: 1.5rem;
+  font-style: italic;
+  color: #EAB63E;
+  margin: 2rem 0;
+  padding: 1rem;
+  border-left: 4px solid #EAB63E;
+  background: rgba(53, 89, 82, 0.1);
+  border-radius: 8px;
+}

@@ -25,6 +25,28 @@ module.exports = {
         use: ['style-loader', 'css-loader'],
       },
       {
+        test: /\.scss$/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 2,
+              modules: false,
+            },
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              implementation: require('sass'),
+              sassOptions: {
+                includePaths: [path.resolve(__dirname, 'src/styles')],
+              },
+            },
+          },
+        ],
+      },
+      {
         test: /\.(png|jpe?g|gif|svg)$/i,
         use: [
           {

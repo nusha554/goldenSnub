@@ -1,4 +1,3 @@
-// Component Props Types
 export interface ScrollSectionProps {
   children: React.ReactNode;
   className: string;
@@ -19,7 +18,6 @@ export interface TokenomicsSectionProps {
   tokenomicsData?: TokenomicsItem[];
 }
 
-// Animation Types
 export interface AnimationVariants {
   initial: object;
   animate: object;
@@ -28,7 +26,6 @@ export interface AnimationVariants {
   whileTap?: object;
 }
 
-// Hook Types
 export interface UseScrollAnimationReturn {
   ref: React.RefObject<HTMLElement>;
   isVisible: boolean;
@@ -39,7 +36,6 @@ export interface UseScrollAnimationOptions {
   rootMargin?: string;
 }
 
-// Time Types
 export interface TimeLeft {
   days: number;
   hours: number;
@@ -47,7 +43,6 @@ export interface TimeLeft {
   seconds: number;
 }
 
-// Section Types
 export type SectionType = 
   | 'hero'
   | 'welcome'
@@ -61,7 +56,6 @@ export interface SectionProps {
   children?: React.ReactNode;
 }
 
-// Color Theme Types
 export interface ColorTheme {
   lightBlue: string;
   cream: string;
@@ -69,14 +63,12 @@ export interface ColorTheme {
   goldenYellow: string;
 }
 
-// Social Link Types
 export interface SocialLink {
   name: string;
   url: string;
   icon: string;
 }
 
-// Animation Configuration
 export interface AnimationConfig {
   duration: number;
   delay?: number;
@@ -85,13 +77,11 @@ export interface AnimationConfig {
   stiffness?: number;
 }
 
-// Component State Types
 export interface ComponentState {
   isVisible: boolean;
   isAnimating: boolean;
 }
 
-// Event Handler Types
 export type ClickHandler = (event: React.MouseEvent<HTMLButtonElement>) => void;
 export type ScrollHandler = (event: Event) => void;
 export type AnimationCompleteHandler = () => void;
