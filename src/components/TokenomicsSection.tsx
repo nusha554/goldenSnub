@@ -33,37 +33,46 @@ const TokenomicsSection: React.FC = () => {
 
   return (
     <ScrollSection className="tokenomics" id="tokenomics">
+      <motion.div 
+        className="tokenomics__lock-icon tokenomics__lock-icon--overlay"
+        initial={{ opacity: 0, scale: 0.5 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{ 
+          duration: 0.6, 
+          delay: 0.1,
+          ease: [0.25, 0.46, 0.45, 0.94]
+        }}
+        viewport={{ once: true, amount: 0.1 }}
+        style={{ willChange: 'transform, opacity' }}
+      >
+        🔒
+      </motion.div>
+      
       <div className="tokenomics__container">
-        <div className="tokenomics__content">
-          <motion.h1 
-            className="tokenomics__title"
+        <div className="tokenomics__content tokenomics__content--blurred">
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true, amount: 0.3 }}
+            transition={{ 
+              duration: 0.5, 
+              delay: 0.2,
+              ease: [0.25, 0.46, 0.45, 0.94]
+            }}
+            viewport={{ once: true, amount: 0.1 }}
+            style={{ willChange: 'transform, opacity' }}
           >
-            💰 Tokenomics That Slap
-          </motion.h1>
-          
-          <motion.p 
-            className="tokenomics__subtitle"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            viewport={{ once: true, amount: 0.3 }}
-          >
-            Total Supply: <strong>1,000,000,000 $MONKY</strong>
-          </motion.p>
-          
-          <motion.p 
-            className="tokenomics__subtitle"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            viewport={{ once: true, amount: 0.3 }}
-          >
-            Here's how the jungle splits the loot:
-          </motion.p>
+            <h1 className="tokenomics__title">
+              💰 Tokenomics That Slap
+            </h1>
+            
+            <p className="tokenomics__subtitle">
+              Total Supply: <strong>1,000,000,000 $MONKY</strong>
+            </p>
+            
+            <p className="tokenomics__subtitle">
+              Here's how the jungle splits the loot:
+            </p>
+          </motion.div>
           
           <div className="tokenomics__grid">
             {tokenomicsData.map((item, index) => (
@@ -72,9 +81,14 @@ const TokenomicsSection: React.FC = () => {
                 className="tokenomics__item"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true, amount: 0.3 }}
+                transition={{ 
+                  duration: 0.4, 
+                  delay: 0.3 + index * 0.05,
+                  ease: [0.25, 0.46, 0.45, 0.94]
+                }}
+                viewport={{ once: true, amount: 0.1 }}
                 whileHover={{ scale: 1.05 }}
+                style={{ willChange: 'transform, opacity' }}
               >
                 {item.description.includes('Airdrops & Community') ? (
                   <img 
@@ -113,8 +127,13 @@ const TokenomicsSection: React.FC = () => {
             className="tokenomics__footer"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.0 }}
-            viewport={{ once: true, amount: 0.3 }}
+            transition={{ 
+              duration: 0.5, 
+              delay: 0.5,
+              ease: [0.25, 0.46, 0.45, 0.94]
+            }}
+            viewport={{ once: true, amount: 0.1 }}
+            style={{ willChange: 'transform, opacity' }}
           >
             Zero fluff. Zero rug. 100% monkey business. 🐒💸
           </motion.p>

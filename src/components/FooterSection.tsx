@@ -24,7 +24,7 @@ const FooterSection: React.FC = () => {
               fontFamily: '"Libertinus Serif", serif !important',
             }}
           >
-            🦍 MonkeyMoon © 2025
+            🐒 Golden Snub Monkey © 2025
           </Typography>
           
           <Typography
@@ -35,8 +35,8 @@ const FooterSection: React.FC = () => {
               mb: 1,
             }}
           >
-            Made with chaos, laughter, and way too much caffeine. No roadmap, only rocket fuel. See you on the moon. 🚀
-          </Typography>
+Born in the jungle with vision, courage, and golden energy. Not following a map — creating a new path. The jungle's next stop: the moon. 🚀        
+  </Typography>
           
           <Typography
             variant="body2"

@@ -8,20 +8,20 @@ import image3 from '../assets/1456a6e2-b93c-437d-8449-f6baa2240a6a.jpeg';
 const StorySection: React.FC = () => {
   const cards = [
     {
-      title: "🪙 Real Community, Real Transparency",
-      text: "Every transaction is public, every wallet is trackable.\nNo secret wallets, no hidden rugs — just pure on-chain honesty.\nG-Snub Monkey is built by the community, for the community.",
+      title: "Built on Truth, Grown with Purpose.",
+      text: "The Golden Snub Monkey began with a simple belief — honesty lasts longer than hype.\nOur foundation is transparency, trust, and the drive to create something that truly endures. 🌕",
       bgColor: "#355952",
       image: image1
     },
     {
-      title: "🔒 Locked Liquidity, Open Intentions", 
-      text: "We've locked liquidity and verified our contract — no vanishing acts here.\nOur mission isn't a quick pump; it's a movement for the long run.\nBecause trust is the rarest coin of all. 💎",
+      title: "Where Creativity Meets Courage.", 
+      text: "We're not here to follow — we're here to imagine, build, and evolve.\nEvery idea in the jungle starts as a spark, and together we turn it into something extraordinary. 💛🌿",
       bgColor: "#EAB63E",
       image: image2
     },
     {
-      title: "🧠 Meme With Meaning",
-      text: "We're not here to scam — we're here to build something fun and real.\nBehind the memes are developers, artists, and holders who actually care.\nG-Snub Monkey stands for humor, honesty, and the moon. 🌕",
+      title: "A Tribe That Moves as One.",
+      text: "This isn't a crowd chasing trends — it's a family growing in harmony.\nFree thinkers, dreamers, and builders connected by energy, integrity, and long-term vision. 🐒✨",
       bgColor: "#E37769",
       image: image3
     }
@@ -35,21 +35,30 @@ const StorySection: React.FC = () => {
             className="story__title"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true, amount: 0.3 }}
+            transition={{ 
+              duration: 0.5, 
+              delay: 0.1,
+              ease: [0.25, 0.46, 0.45, 0.94]
+            }}
+            viewport={{ once: true, amount: 0.1 }}
+            style={{ willChange: 'transform, opacity' }}
           >
-            ✨ Why G-Snub Monkey Is Different
+            From the Jungle, We Rise.
           </motion.h1>
           
           <motion.p 
             className="story__subtitle"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            viewport={{ once: true, amount: 0.3 }}
+            transition={{ 
+              duration: 0.5, 
+              delay: 0.2,
+              ease: [0.25, 0.46, 0.45, 0.94]
+            }}
+            viewport={{ once: true, amount: 0.1 }}
+            style={{ willChange: 'transform, opacity' }}
           >
-            The jungle is wild — but we're not the scammers hiding in the trees.<br/>
-            Here's why you can trust our golden tribe
+            Explore the values, creativity, and purpose that define our journey
           </motion.p>
 
           <div className="story__cards">
@@ -57,12 +66,20 @@ const StorySection: React.FC = () => {
               <motion.div 
                 key={index} 
                 className="story__card" 
-                style={{ backgroundColor: card.bgColor }}
+                style={{ backgroundColor: card.bgColor, willChange: 'transform, opacity' }}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.6 + index * 0.2 }}
-                viewport={{ once: true, amount: 0.3 }}
-                whileHover={{ scale: 1.05, y: -10 }}
+                transition={{ 
+                  duration: 0.5, 
+                  delay: 0.3 + index * 0.1,
+                  ease: [0.25, 0.46, 0.45, 0.94]
+                }}
+                viewport={{ once: true, amount: 0.1 }}
+                whileHover={{ 
+                  y: -10,
+                  boxShadow: "0 8px 32px rgba(0,0,0,0.1), 0 0 30px rgba(255, 215, 0, 0.4), 0 0 60px rgba(255, 215, 0, 0.2)",
+                  transition: { duration: 0.2, ease: "easeOut" }
+                }}
               >
                 <div className="story__card-image">
                   <img 

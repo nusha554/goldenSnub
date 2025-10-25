@@ -67,20 +67,20 @@ const HeroSection: React.FC = () => {
                 component="h1"
                 sx={{
                   fontWeight: 'bold',
-                  mb: 2,
+                  mb: 4,
                   textShadow: `
                     0 0 10px rgba(234, 182, 62, 0.6),
                     0 0 20px rgba(234, 182, 62, 0.5),
                     0 0 30px rgba(234, 182, 62, 0.4),
                     2px 2px 4px rgba(0,0,0,0.5)
                   `,
-                  fontSize: { xs: '2rem', md: '3.5rem' },
+                  fontSize: { xs: '2rem', md: '4.5rem' },
                   color: '#355952 !important',
                   fontFamily: '"Libertinus Serif", serif !important',
                   filter: 'drop-shadow(0 0 4px rgba(234, 182, 62, 0.3))',
                 }}
               >
-                Where creativity knows no bounds.
+                Welcome to the Jungle.
               </Typography>
             </motion.div>
 
@@ -94,10 +94,10 @@ const HeroSection: React.FC = () => {
                 component="h2"
                 sx={{
                   fontWeight: 'bold',
-                  mb: 2,
+                  mb: 4,
                   color: '#EAB63E !important',
                   textShadow: '2px 2px 4px rgba(0,0,0,0.5)',
-                  fontSize: { xs: '1.5rem', md: '2.5rem' },
+                  fontSize: { xs: '1.5rem', md: '2.2rem' },
                   fontFamily: '"Libertinus Serif", serif !important',
                 }}
               >
@@ -114,13 +114,13 @@ const HeroSection: React.FC = () => {
                 variant="h5"
                 component="p"
                 sx={{
-                  mb: 4,
+                  mb: 6,
                   textShadow: '1px 1px 2px rgba(0,0,0,0.5)',
                   fontSize: { xs: '1.2rem', md: '1.5rem' },
                   color: '#355952 !important',
                 }}
               >
-                Limited Supply, Infinite Potential
+                Built for the long run. Powered by purpose.
               </Typography>
             </motion.div>
 
@@ -166,7 +166,7 @@ const HeroSection: React.FC = () => {
                 direction="row" 
                 spacing={1.5} 
                 justifyContent="flex-start" 
-                sx={{ mt: 4 }}
+                sx={{ mt: 6 }}
                 flexWrap="wrap"
               >
                   <motion.div
@@ -235,7 +235,7 @@ const HeroSection: React.FC = () => {
                       <IconButton
                         size="large"
                         component="a"
-                        href="https://t.me/GSnubMonkey"
+                        href="https://t.me/GSnubMonkeyChat"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="social-button social-button--telegram"
@@ -246,7 +246,8 @@ const HeroSection: React.FC = () => {
                     </Tooltip>
                   </motion.div>
                   
-                  <motion.div
+                  {/* Temporarily disabled Pump.fun button */}
+                  {/* <motion.div
                     initial={{ opacity: 0, scale: 0 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.5, delay: 1.4, ease: "easeOut" }}
@@ -283,9 +284,10 @@ const HeroSection: React.FC = () => {
                         <span className="social-button__banana">🍌</span>
                       </IconButton>
                     </Tooltip>
-                  </motion.div>
+                  </motion.div> */}
                   
-                  <motion.div
+                  {/* Temporarily disabled DexScreener button */}
+                  {/* <motion.div
                     initial={{ opacity: 0, scale: 0 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.5, delay: 1.6, ease: "easeOut" }}
@@ -322,7 +324,7 @@ const HeroSection: React.FC = () => {
                         <span className="social-button__banana">🍌</span>
                       </IconButton>
                     </Tooltip>
-                  </motion.div>
+                  </motion.div> */}
               </Stack>
             </motion.div>
           </Box>

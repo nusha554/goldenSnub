@@ -12,8 +12,13 @@ const WelcomeSection: React.FC = () => {
             className="welcome__image-container"
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true, amount: 0.3 }}
+            transition={{ 
+              duration: 0.4, 
+              delay: 0.1,
+              ease: [0.25, 0.46, 0.45, 0.94]
+            }}
+            viewport={{ once: true, amount: 0.1 }}
+            style={{ willChange: 'transform, opacity' }}
           >
             <img 
               src={unleashImage} 
@@ -26,51 +31,50 @@ const WelcomeSection: React.FC = () => {
             className="welcome__title"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            viewport={{ once: true, amount: 0.3 }}
+            transition={{ 
+              duration: 0.4, 
+              delay: 0.2,
+              ease: [0.25, 0.46, 0.45, 0.94]
+            }}
+            viewport={{ once: true, amount: 0.1 }}
+            style={{ willChange: 'transform, opacity' }}
           >
             Unleash Your Inner Ape.
           </motion.h1>
           
-          <motion.p 
-            className="welcome__subtitle"
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            viewport={{ once: true, amount: 0.3 }}
+            transition={{ 
+              duration: 0.4, 
+              delay: 0.3,
+              ease: [0.25, 0.46, 0.45, 0.94]
+            }}
+            viewport={{ once: true, amount: 0.1 }}
+            style={{ willChange: 'transform, opacity' }}
           >
-            The coin that laughs at gravity — and aims straight for the freakin' moon.
-          </motion.p>
-          
-          <motion.p 
-            className="welcome__text"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            viewport={{ once: true, amount: 0.3 }}
-          >
-            We're not just another meme coin — we're a <strong>movement of degenerates, dreamers, and diamond hands</strong> who believe fun <em>is</em> the future of finance.
-          </motion.p>
-          
-          <motion.p 
-            className="welcome__text"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.0 }}
-            viewport={{ once: true, amount: 0.3 }}
-          >
-            The countdown's ticking. The rocket's loaded. The jungle's getting louder.
-          </motion.p>
-          
-          <motion.p 
-            className="welcome__text welcome__text--highlight"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.2 }}
-            viewport={{ once: true, amount: 0.3 }}
-          >
-            Are you in or still watching from Earth? 🌍🔥
-          </motion.p>
+            <p className="welcome__subtitle">
+              The Golden Snub Monkey isn't just a coin — it's a long-term movement built on honesty, transparency, and trust. 🌕
+            </p>
+            
+            <p className="welcome__text">
+              We believe the future of finance belongs to communities that create, share, and grow together — not to empty promises.
+            </p>
+            
+            <p className="welcome__text">
+              Our jungle runs on truth, creativity, and connection. Every holder matters, every voice counts, and every banana builds the future. 🍌
+            </p>
+            
+            <p className="welcome__text">
+              This is more than a moment — it's evolution.
+            </p>
+            
+            <p className="welcome__text welcome__text--highlight">
+              The jungle's awake. The mission's golden.
+              <br />
+              <span style={{ display: 'block', textAlign: 'center' }}>Are you climbing with us? 🐒💛</span>
+            </p>
+          </motion.div>
         </div>
       </div>
     </ScrollSection>

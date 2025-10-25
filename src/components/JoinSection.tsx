@@ -10,7 +10,7 @@ import pillIcon from '../assets/pill-removebg-preview.png';
 import dexIcon from '../assets/dex.png';
 
 const JoinSection: React.FC = () => {
-  const { ref, isVisible } = useScrollAnimation(0.1);
+  const { ref, isVisible } = useScrollAnimation(0.3);
 
   return (
     <Box
@@ -25,6 +25,11 @@ const JoinSection: React.FC = () => {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
+        // Disable CSS transitions to prevent conflicts with Framer Motion
+        transition: 'none !important',
+        '& *': {
+          transition: 'none !important',
+        },
         '&::before': {
           content: '""',
           position: 'absolute',
@@ -55,15 +60,20 @@ const JoinSection: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            transition={{ 
+              duration: 0.5, 
+              ease: [0.25, 0.46, 0.45, 0.94],
+              willChange: 'transform, opacity'
+            }}
+            style={{ willChange: 'transform, opacity' }}
           >
             <Typography
               variant="h2"
               component="h1"
               sx={{
                 fontWeight: 'bold',
-                mb: 4,
-                fontSize: { xs: '2.5rem', md: '4rem' },
+                mb: 6,
+                fontSize: { xs: '2rem', md: '2rem' },
                 color: 'white !important',
                 textShadow: '0 0 20px #EAB63E, 0 0 40px #EAB63E, 0 0 60px #EAB63E, 3px 3px 6px rgba(0,0,0,0.8)',
                 fontFamily: '"Libertinus Serif", serif !important',
@@ -73,14 +83,21 @@ const JoinSection: React.FC = () => {
                 textTransform: 'uppercase',
               }}
             >
-              🐒 Join the Revolution 🚀
+              🐒The strength of the pack is the monkey,<br />
+              and the strength of the monkey is the pack. 🚀
             </Typography>
           </motion.div>
+          
           
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            transition={{ 
+              duration: 0.4, 
+              delay: 0.1, 
+              ease: [0.25, 0.46, 0.45, 0.94]
+            }}
+            style={{ willChange: 'transform, opacity' }}
           >
             <Typography
               variant="h6"
@@ -100,7 +117,12 @@ const JoinSection: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+            transition={{ 
+              duration: 0.4, 
+              delay: 0.15, 
+              ease: [0.25, 0.46, 0.45, 0.94]
+            }}
+            style={{ willChange: 'transform, opacity' }}
           >
             <Typography
               variant="h6"
@@ -119,7 +141,12 @@ const JoinSection: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+            transition={{ 
+              duration: 0.4, 
+              delay: 0.2, 
+              ease: [0.25, 0.46, 0.45, 0.94]
+            }}
+            style={{ willChange: 'transform, opacity' }}
           >
             <Typography
               variant="h6"
@@ -138,26 +165,36 @@ const JoinSection: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
+            transition={{ 
+              duration: 0.4, 
+              delay: 0.25, 
+              ease: [0.25, 0.46, 0.45, 0.94]
+            }}
+            style={{ willChange: 'transform, opacity' }}
           >
             <Typography
-              variant="h6"
+              variant="h5"
               component="p"
               sx={{
                 mb: 6,
-                fontSize: { xs: '1rem', md: '1.2rem' },
+                fontSize: { xs: '1.2rem', md: '1.5rem' },
                 color: 'white !important',
                 textShadow: '0 0 10px #EAB63E, 0 0 20px #EAB63E, 0 0 30px #EAB63E, 2px 2px 4px rgba(0,0,0,0.7)',
               }}
             >
-              Because we're not leaving this planet until we see the moon reflect in our sunglasses. 😎🌕
+              Because we're not leaving this planet until we see the moon reflect in our sunglasses.🌕
             </Typography>
           </motion.div>
           
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={isVisible ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
-            transition={{ duration: 0.6, delay: 1.0, ease: "easeOut" }}
+            transition={{ 
+              duration: 0.4, 
+              delay: 0.3, 
+              ease: [0.25, 0.46, 0.45, 0.94]
+            }}
+            style={{ willChange: 'transform, opacity' }}
           >
             <Stack 
               direction="row" 
@@ -169,7 +206,12 @@ const JoinSection: React.FC = () => {
               <motion.div
                 initial={{ opacity: 0, scale: 0 }}
                 animate={isVisible ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
-                transition={{ duration: 0.5, delay: 1.2, ease: "easeOut" }}
+                transition={{ 
+                  duration: 0.3, 
+                  delay: 0.35, 
+                  ease: [0.25, 0.46, 0.45, 0.94]
+                }}
+                style={{ willChange: 'transform, opacity' }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -194,12 +236,12 @@ const JoinSection: React.FC = () => {
                   }}
                 >
                   <IconButton
-                    size="large"
+                    size="medium"
                     component="a"
-                    href="https://x.com/GSnubMonkey"
+                    href="https://x.com/GSnubMonkeyChat"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="social-button social-button--x social-button--large"
+                    className="social-button social-button--x"
                   >
                     <img src={xIcon} alt="X" className="social-button__icon" />
                     <span className="social-button__banana">🍌</span>
@@ -210,7 +252,12 @@ const JoinSection: React.FC = () => {
               <motion.div
                 initial={{ opacity: 0, scale: 0 }}
                 animate={isVisible ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
-                transition={{ duration: 0.5, delay: 1.4, ease: "easeOut" }}
+                transition={{ 
+                  duration: 0.3, 
+                  delay: 0.4, 
+                  ease: [0.25, 0.46, 0.45, 0.94]
+                }}
+                style={{ willChange: 'transform, opacity' }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -235,12 +282,12 @@ const JoinSection: React.FC = () => {
                   }}
                 >
                   <IconButton
-                    size="large"
+                    size="medium"
                     component="a"
                     href="https://t.me/GSnubMonkey"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="social-button social-button--telegram social-button--large"
+                    className="social-button social-button--telegram"
                   >
                     <Telegram className="social-button__icon" />
                     <span className="social-button__banana">🍌</span>
@@ -248,10 +295,16 @@ const JoinSection: React.FC = () => {
                 </Tooltip>
               </motion.div>
               
-              <motion.div
+              {/* Temporarily disabled Pump.fun button */}
+              {/* <motion.div
                 initial={{ opacity: 0, scale: 0 }}
                 animate={isVisible ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
-                transition={{ duration: 0.5, delay: 1.6, ease: "easeOut" }}
+                transition={{ 
+                  duration: 0.3, 
+                  delay: 0.45, 
+                  ease: [0.25, 0.46, 0.45, 0.94]
+                }}
+                style={{ willChange: 'transform, opacity' }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -276,23 +329,29 @@ const JoinSection: React.FC = () => {
                   }}
                 >
                   <IconButton
-                    size="large"
+                    size="medium"
                     component="a"
                     href="https://pump.fun/?offset=96"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="social-button social-button--pump social-button--large"
+                    className="social-button social-button--pump"
                   >
                     <img src={pillIcon} alt="Pump.fun" className="social-button__icon" />
                     <span className="social-button__banana">🍌</span>
                   </IconButton>
                 </Tooltip>
-              </motion.div>
+              </motion.div> */}
               
-              <motion.div
+              {/* Temporarily disabled DexScreener button */}
+              {/* <motion.div
                 initial={{ opacity: 0, scale: 0 }}
                 animate={isVisible ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
-                transition={{ duration: 0.5, delay: 1.8, ease: "easeOut" }}
+                transition={{ 
+                  duration: 0.3, 
+                  delay: 0.5, 
+                  ease: [0.25, 0.46, 0.45, 0.94]
+                }}
+                style={{ willChange: 'transform, opacity' }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -317,18 +376,18 @@ const JoinSection: React.FC = () => {
                   }}
                 >
                   <IconButton
-                    size="large"
+                    size="medium"
                     component="a"
                     href="https://dexscreener.com/solana/soon"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="social-button social-button--dex social-button--large"
+                    className="social-button social-button--dex"
                   >
                     <img src={dexIcon} alt="DexScreener" className="social-button__icon" />
                     <span className="social-button__banana">🍌</span>
                   </IconButton>
                 </Tooltip>
-              </motion.div>
+              </motion.div> */}
             </Stack>
           </motion.div>
         </Box>
