@@ -237,7 +237,7 @@ const JoinSection: React.FC = () => {
                   <IconButton
                     size="medium"
                     component="a"
-                    href="https://x.com/GSnubMonkeyChat"
+                    href="https://x.com/GSnubMonkey"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="social-button social-button--x"
@@ -283,7 +283,7 @@ const JoinSection: React.FC = () => {
                   <IconButton
                     size="medium"
                     component="a"
-                    href="https://t.me/GSnubMonkey"
+                    href="https://t.me/GSnubMonkeyChat"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="social-button social-button--telegram"
