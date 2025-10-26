@@ -171,7 +171,7 @@
 @media (max-width: $breakpoint-lg) {
   .join {
     &__title {
-      font-size: 2.5rem;
+      font-size: 2rem;
     }
     
     &__subtitle,
@@ -184,7 +184,7 @@
 @media (max-width: $breakpoint-md) {
   .join {
     &__title {
-      font-size: 2.2rem;
+      font-size: 2rem;
     }
     
     &__subtitle,
@@ -226,7 +226,7 @@
       font-size: 2.2rem !important;
       line-height: 1.5;
       margin-bottom: $spacing-xxl;
-      padding-bottom: $spacing-lg;
+      padding-bottom: $spacing-sm;
     }
     
     &__subtitle,
@@ -234,6 +234,11 @@
       font-size: 0.9rem;
       line-height: 1.6;
       margin-bottom: $spacing-sm;
+    }
+    
+    // Add extra space under "Join the family. Spread the memes. Hold the line."
+    &__description:nth-of-type(3) {
+      margin-bottom: $spacing-xl;
     }
   }
 
@@ -286,6 +291,11 @@
     &__subtitle,
     &__description {
       font-size: 0.85rem;
+    }
+    
+    // Add extra space under "Join the family. Spread the memes. Hold the line."
+    &__description:nth-of-type(3) {
+      margin-bottom: $spacing-xl;
     }
   }
 

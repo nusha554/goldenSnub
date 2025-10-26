@@ -138,15 +138,37 @@ const HeroSection: React.FC = () => {
                   mb: { xs: 3, md: 4 },
                   mt: { xs: 4, md: 0 },
                   textShadow: `
-                    0 0 10px rgba(234, 182, 62, 0.6),
-                    0 0 20px rgba(234, 182, 62, 0.5),
+                    0 0 10px rgba(234, 182, 62, 0.8),
+                    0 0 20px rgba(234, 182, 62, 0.6),
                     0 0 30px rgba(234, 182, 62, 0.4),
+                    0 0 40px rgba(234, 182, 62, 0.2),
                     2px 2px 4px rgba(0,0,0,0.5)
                   `,
                   fontSize: { xs: '3.5rem', md: '4.5rem' },
                   color: '#355952 !important',
                   fontFamily: '"Libertinus Serif", serif !important',
-                  filter: 'drop-shadow(0 0 4px rgba(234, 182, 62, 0.3))',
+                  filter: 'drop-shadow(0 0 8px rgba(234, 182, 62, 0.5))',
+                  animation: 'glow 2s ease-in-out infinite alternate',
+                  '@keyframes glow': {
+                    '0%': {
+                      textShadow: `
+                        0 0 10px rgba(234, 182, 62, 0.8),
+                        0 0 20px rgba(234, 182, 62, 0.6),
+                        0 0 30px rgba(234, 182, 62, 0.4),
+                        0 0 40px rgba(234, 182, 62, 0.2),
+                        2px 2px 4px rgba(0,0,0,0.5)
+                      `,
+                    },
+                    '100%': {
+                      textShadow: `
+                        0 0 15px rgba(234, 182, 62, 1),
+                        0 0 25px rgba(234, 182, 62, 0.8),
+                        0 0 35px rgba(234, 182, 62, 0.6),
+                        0 0 45px rgba(234, 182, 62, 0.4),
+                        2px 2px 4px rgba(0,0,0,0.5)
+                      `,
+                    },
+                  },
                 }}
               >
                 Welcome to the Jungle.
@@ -163,10 +185,11 @@ const HeroSection: React.FC = () => {
                 component="h2"
                 sx={{
                   fontWeight: 'bold',
-                  mb: { xs: 3, md: 4 },
+                  mt: { xs: 0, md: 0 },
+                  mb: { xs: 9, md: 4 },
                   color: '#EAB63E !important',
                   textShadow: '2px 2px 4px rgba(0,0,0,0.5)',
-                  fontSize: { xs: '1.8rem', md: '2.2rem' },
+                  fontSize: { xs: '1.4em', md: '2.2rem' },
                   fontFamily: '"Libertinus Serif", serif !important',
                 }}
               >
@@ -183,17 +206,26 @@ const HeroSection: React.FC = () => {
                 variant="h5"
                 component="p"
                 sx={{
-                  mb: { xs: 8, md: 6 },
+                  mt: { xs: 8, md: 0 },
+                  mb: { xs: 4, md: 6 },
                   textShadow: '1px 1px 2px rgba(0,0,0,0.5)',
-                  fontSize: { xs: '1.4rem', md: '1.5rem' },
+                  fontSize: { xs: '1.3rem', md: '1.5rem' },
                   color: '#355952 !important',
                   display: { xs: 'block', md: 'inline' },
                 }}
               >
-                <Box component="span" sx={{ display: { xs: 'block', md: 'inline' } }}>
+                <Box component="span" sx={{ 
+                  display: { xs: 'block', md: 'inline' },
+                  WebkitTextStroke: '0.3px rgba(250, 246, 231, 0.3)',
+                  textStroke: '0.3px rgba(250, 246, 231, 0.3)',
+                }}>
                   Built for the long run.
                 </Box>
-                <Box component="span" sx={{ display: { xs: 'block', md: 'inline' } }}>
+                <Box component="span" sx={{ 
+                  display: { xs: 'block', md: 'inline' },
+                  WebkitTextStroke: '0.3px rgba(250, 246, 231, 0.3)',
+                  textStroke: '0.3px rgba(250, 246, 231, 0.3)',
+                }}>
                   Powered by purpose.
                 </Box>
               </Typography>
@@ -203,6 +235,7 @@ const HeroSection: React.FC = () => {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
+              style={{ marginTop: '2rem' }}
             >
               <Button
                 variant="contained"
@@ -241,7 +274,7 @@ const HeroSection: React.FC = () => {
                 direction="row" 
                 spacing={1.5} 
                 justifyContent={{ xs: 'center', md: 'flex-start' }}
-                sx={{ mt: { xs: 8, md: 6 } }}
+                sx={{ mt: { xs: 8, md: 10 } }}
                 flexWrap="wrap"
               >
                   <motion.div

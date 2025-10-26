@@ -161,6 +161,7 @@ const JoinSection: React.FC = () => {
               variant="h6"
               component="p"
               className="join__description"
+              sx={{ marginBottom: { xs: '2rem', md: '1rem' } }}
             >
               Join the family. Spread the memes. Hold the line.
             </Typography>
