@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Box, Typography, Container, IconButton, Stack, Tooltip } from '@mui/material';
+import { Box, Typography, Container, IconButton, Stack, Tooltip, Skeleton } from '@mui/material';
 import { Telegram, ArrowForward, TrendingUp, Analytics } from '@mui/icons-material';
 import ScrollSection from './ScrollSection';
 import useScrollAnimation from '../hooks/useScrollAnimation';
@@ -8,9 +8,18 @@ import jungleBackground from '../assets/61d6d7e4-cc4e-4981-a344-0f50c04e51d6.jpe
 import xIcon from '../assets/twitterx--v2-removebg-preview.png';
 import pillIcon from '../assets/pill-removebg-preview.png';
 import dexIcon from '../assets/dex.png';
+import { useImageLoader } from '../utils/imagePreloader';
 
 const JoinSection: React.FC = () => {
   const { ref, isVisible } = useScrollAnimation(0.3);
+  const imageState = useImageLoader(jungleBackground);
+  const [showImage, setShowImage] = useState(false);
+
+  useEffect(() => {
+    if (imageState.isLoaded) {
+      setShowImage(true);
+    }
+  }, [imageState.isLoaded]);
 
   return (
     <Box
@@ -22,8 +31,60 @@ const JoinSection: React.FC = () => {
         backgroundSize: 'cover',
         backgroundPosition: { xs: '58% center', md: 'center' },
         backgroundRepeat: 'no-repeat',
+        position: 'relative',
+        opacity: showImage ? 1 : 0,
+        transition: 'opacity 0.8s ease-in-out',
       }}
     >
+      {imageState.isLoading && (
+        <Box
+          sx={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            zIndex: 0,
+            backgroundColor: '#355952',
+            background: 'linear-gradient(135deg, #355952 0%, #3988A4 50%, #355952 100%)',
+            opacity: showImage ? 0 : 1,
+            transition: 'opacity 0.8s ease-in-out',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          <Box
+            sx={{
+              width: '60px',
+              height: '60px',
+              border: '3px solid rgba(234, 182, 62, 0.3)',
+              borderTop: '3px solid #EAB63E',
+              borderRadius: '50%',
+              animation: 'spin 1s linear infinite',
+              '@keyframes spin': {
+                '0%': { transform: 'rotate(0deg)' },
+                '100%': { transform: 'rotate(360deg)' },
+              },
+            }}
+          />
+        </Box>
+      )}
+      
+      {imageState.hasError && (
+        <Box
+          sx={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            zIndex: 0,
+            backgroundColor: '#355952',
+            background: 'linear-gradient(135deg, #355952 0%, #3988A4 100%)',
+          }}
+        />
+      )}
       <Container maxWidth="lg" className="join__container">
         <Box className="join__content">
           <motion.div
@@ -233,7 +294,6 @@ const JoinSection: React.FC = () => {
                 </Tooltip>
               </motion.div>
               
-              {/* Temporarily disabled Pump.fun button */}
               {/* <motion.div
                 initial={{ opacity: 0, scale: 0 }}
                 animate={isVisible ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
@@ -280,7 +340,6 @@ const JoinSection: React.FC = () => {
                 </Tooltip>
               </motion.div> */}
               
-              {/* Temporarily disabled DexScreener button */}
               {/* <motion.div
                 initial={{ opacity: 0, scale: 0 }}
                 animate={isVisible ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}

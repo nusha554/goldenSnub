@@ -76,9 +76,9 @@ const StorySection: React.FC = () => {
                 }}
                 viewport={{ once: true, amount: 0.1 }}
                 whileHover={{ 
-                  y: -10,
-                  boxShadow: "0 8px 32px rgba(0,0,0,0.1), 0 0 30px rgba(255, 215, 0, 0.4), 0 0 60px rgba(255, 215, 0, 0.2)",
-                  transition: { duration: 0.2, ease: "easeOut" }
+                  y: -8,
+                  scale: 1.02,
+                  transition: { duration: 0.3, ease: "easeOut" }
                 }}
               >
                 <div className="story__card-image">

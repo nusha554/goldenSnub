@@ -15,12 +15,9 @@ const Navigation: React.FC = () => {
   ];
 
   const scrollToSection = (sectionId: string) => {
-    console.log('Scrolling to section:', sectionId); // Debug log
     const element = document.getElementById(sectionId);
-    console.log('Element found:', element); // Debug log
     
     if (element) {
-      // Add a small delay to ensure the menu closes before scrolling
       setTimeout(() => {
         element.scrollIntoView({
           behavior: 'smooth',

@@ -8,9 +8,6 @@
   position: relative;
   scroll-margin-top: 80px;
   
-  // Background image styling handled in component
-  
-  // Add gentle fade effect using mask
   -webkit-mask: linear-gradient(
     to bottom,
     transparent 0%,
@@ -30,14 +27,12 @@
     transparent 100%
   );
   
-  // Disable CSS transitions to prevent conflicts with Framer Motion
   transition: none !important;
   
   & * {
     transition: none !important;
   }
   
-  // Overlay
   &::before {
     content: '';
     position: absolute;
@@ -49,7 +44,6 @@
     z-index: 1;
   }
   
-  // Bottom wave decoration
   &::after {
     content: '';
     position: absolute;
@@ -89,7 +83,6 @@
     text-transform: uppercase;
   }
 
-  // Add margin to the motion wrapper for the title
   .motion-title-wrapper {
     margin-bottom: 2rem !important;
   }
@@ -206,14 +199,10 @@
     padding: $spacing-lg $spacing-sm;
     min-height: 90vh;
     
-    // Mobile-specific background positioning handled in component
-    
-    // Hide wave decoration on mobile
     &::after {
       display: none;
     }
     
-    // Add gentle fade effect using mask on mobile
     -webkit-mask: linear-gradient(
       to bottom,
       transparent 0%,
@@ -286,8 +275,6 @@
 @media (max-width: 360px) {
   .join {
     padding: $spacing-md $spacing-xs;
-    
-    // Extra small mobile background positioning handled in component
     
     &__title {
       font-size: 2.2rem !important;

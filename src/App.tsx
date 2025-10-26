@@ -9,7 +9,7 @@ import {
 } from './components';
 import Navigation from './components/Navigation';
 import ScrollToTop from './components/ScrollToTop';
-import { preloadImages, preloadCriticalImages } from './utils/imagePreloader';
+import { preloadImages, preloadCriticalImages, preloadImageWithCallback } from './utils/imagePreloader';
 import './styles/main.scss';
 
 import monkeyImage from './assets/93506c14-c89d-4a6b-bf72-fa5ab41c40e9.jpeg';
@@ -25,7 +25,8 @@ import tokenomicsBg4 from './assets/ed4c87ef-9e37-4e57-a913-0b36903c6a1b.jpeg';
 
 const App: React.FC = () => {
   useEffect(() => {
-    const criticalImages = [monkeyImage, jungleBackground];
+    const criticalImages = [monkeyImage];
+    
     const allImages = [
       monkeyImage, 
       jungleBackground,
@@ -40,6 +41,12 @@ const App: React.FC = () => {
     ];
     
     preloadCriticalImages(criticalImages);
+    
+    preloadImageWithCallback(
+      monkeyImage,
+      () => console.log('Hero image loaded successfully'),
+      () => console.warn('Hero image failed to load')
+    );
     
     preloadImages(allImages);
   }, []);

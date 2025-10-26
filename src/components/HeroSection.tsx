@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { 
   Box, 
@@ -7,15 +7,26 @@ import {
   Container,
   IconButton,
   Stack,
-  Tooltip
+  Tooltip,
+  Skeleton
 } from '@mui/material';
 import { Telegram, TrendingUp, Analytics } from '@mui/icons-material';
 import monkeyImage from '../assets/93506c14-c89d-4a6b-bf72-fa5ab41c40e9.jpeg';
 import xIcon from '../assets/twitterx--v2-removebg-preview.png';
 import pillIcon from '../assets/pill-removebg-preview.png';
 import dexIcon from '../assets/dex.png';
+import { useImageLoader } from '../utils/imagePreloader';
 
 const HeroSection: React.FC = () => {
+  const imageState = useImageLoader(monkeyImage);
+  const [showImage, setShowImage] = useState(false);
+
+  useEffect(() => {
+    if (imageState.isLoaded) {
+      setShowImage(true);
+    }
+  }, [imageState.isLoaded]);
+
   const scrollToBottom = () => {
     const joinSection = document.getElementById('join');
     if (joinSection) {
@@ -47,8 +58,59 @@ const HeroSection: React.FC = () => {
             backgroundColor: 'rgba(0, 0, 0, 0.4)',
             zIndex: 1,
           },
+          opacity: showImage ? 1 : 0,
+          transition: 'opacity 0.8s ease-in-out',
         }}
       >
+        {imageState.isLoading && (
+          <Box
+            sx={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              zIndex: 0,
+              backgroundColor: '#355952',
+              background: 'linear-gradient(135deg, #355952 0%, #3988A4 50%, #355952 100%)',
+              opacity: showImage ? 0 : 1,
+              transition: 'opacity 0.8s ease-in-out',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            <Box
+              sx={{
+                width: '60px',
+                height: '60px',
+                border: '3px solid rgba(234, 182, 62, 0.3)',
+                borderTop: '3px solid #EAB63E',
+                borderRadius: '50%',
+                animation: 'spin 1s linear infinite',
+                '@keyframes spin': {
+                  '0%': { transform: 'rotate(0deg)' },
+                  '100%': { transform: 'rotate(360deg)' },
+                },
+              }}
+            />
+          </Box>
+        )}
+        
+        {imageState.hasError && (
+          <Box
+            sx={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              zIndex: 0,
+              backgroundColor: '#355952',
+              background: 'linear-gradient(135deg, #355952 0%, #3988A4 100%)',
+            }}
+          />
+        )}
       <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 2 }}>
           <Box
             sx={{
@@ -253,7 +315,6 @@ const HeroSection: React.FC = () => {
                     </Tooltip>
                   </motion.div>
                   
-                  {/* Temporarily disabled Pump.fun button */}
                   {/* <motion.div
                     initial={{ opacity: 0, scale: 0 }}
                     animate={{ opacity: 1, scale: 1 }}
@@ -293,7 +354,6 @@ const HeroSection: React.FC = () => {
                     </Tooltip>
                   </motion.div> */}
                   
-                  {/* Temporarily disabled DexScreener button */}
                   {/* <motion.div
                     initial={{ opacity: 0, scale: 0 }}
                     animate={{ opacity: 1, scale: 1 }}
