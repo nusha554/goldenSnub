@@ -133,6 +133,8 @@
     border-top: none;
     padding: $spacing-sm 0;
     z-index: $z-navigation + 1;
+    overflow: hidden;
+    transform-origin: top;
 
     &-link {
       display: block;
@@ -146,7 +148,7 @@
       cursor: pointer;
       padding: $spacing-sm $spacing-lg;
       text-align: left;
-      transition: all $transition-normal;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       position: relative;
       min-height: 44px;
       display: flex;
@@ -168,7 +170,7 @@
         height: 100%;
         background: $coral;
         transform: scaleY(0);
-        transition: transform $transition-normal;
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       }
 
       &:hover::before,

@@ -24,8 +24,6 @@ const Navigation: React.FC = () => {
           block: 'start',
         });
       }, 100);
-    } else {
-      console.error('Section not found:', sectionId);
     }
     setIsOpen(false);
   };
@@ -135,10 +133,16 @@ const Navigation: React.FC = () => {
         {isOpen && (
           <motion.div
             className="navigation__mobile-menu"
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
+            initial={{ opacity: 0, height: 0, y: -10 }}
+            animate={{ opacity: 1, height: 'auto', y: 0 }}
+            exit={{ opacity: 0, height: 0, y: -10 }}
+            transition={{ 
+              duration: 0.4, 
+              ease: [0.4, 0, 0.2, 1],
+              height: { duration: 0.4, ease: [0.4, 0, 0.2, 1] },
+              opacity: { duration: 0.3, ease: "easeOut" },
+              y: { duration: 0.3, ease: "easeOut" }
+            }}
           >
             {sections.map((section, index) => (
               <motion.button
@@ -149,9 +153,13 @@ const Navigation: React.FC = () => {
                   e.stopPropagation();
                   scrollToSection(section.id);
                 }}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.3, delay: index * 0.1 }}
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ 
+                  duration: 0.3, 
+                  delay: 0.1,
+                  ease: [0.4, 0, 0.2, 1]
+                }}
                 whileHover={!isMobile ? { x: 10 } : {}}
                 whileTap={{ scale: 0.95 }}
               >

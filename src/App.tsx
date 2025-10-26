@@ -44,8 +44,8 @@ const App: React.FC = () => {
     
     preloadImageWithCallback(
       monkeyImage,
-      () => console.log('Hero image loaded successfully'),
-      () => console.warn('Hero image failed to load')
+      () => {},
+      () => {}
     );
     
     preloadImages(allImages);
