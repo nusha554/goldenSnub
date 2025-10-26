@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: './src/index.tsx',
@@ -48,6 +49,7 @@ module.exports = {
       },
       {
         test: /\.(png|jpe?g|gif|svg)$/i,
+        exclude: /logo\.jpeg$/,
         use: [
           {
             loader: 'file-loader',
@@ -58,11 +60,32 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /logo\.jpeg$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              outputPath: '',
+              publicPath: '/',
+              name: '[name].[ext]',
+            },
+          },
+        ],
+      },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: './public/index.html',
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: 'public/logo.jpeg',
+          to: 'logo.jpeg',
+        },
+      ],
     }),
   ],
   devServer: {
