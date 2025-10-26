@@ -6,9 +6,9 @@
   left: 0;
   right: 0;
   z-index: $z-navigation;
-  background: $dark-green;
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid $golden;
+  background: rgba(53, 89, 82, 0.9);
+  backdrop-filter: blur(20px);
+  border-bottom: none;
   padding: $spacing-sm 0;
   transition: all $transition-normal;
 
@@ -113,9 +113,9 @@
     top: 100%;
     left: 0;
     right: 0;
-    background: $dark-green;
-    backdrop-filter: blur(10px);
-    border-top: 1px solid $golden;
+    background: rgba(53, 89, 82, 0.9);
+    backdrop-filter: blur(20px);
+    border-top: none;
     padding: $spacing-sm 0;
 
     &-link {

@@ -30,13 +30,14 @@ const FooterSection: React.FC = () => {
           <Typography
             variant="body2"
             sx={{
-              fontSize: { xs: '0.8rem', md: '0.9rem' },
+              fontSize: { xs: '0.75rem', md: '0.8rem' },
               color: '#355952 !important',
+              fontWeight: 500,
               mb: 1,
             }}
           >
-Born in the jungle with vision, courage, and golden energy. Not following a map — creating a new path. The jungle's next stop: the moon. 🚀        
-  </Typography>
+            🍌 Send your bananas: snubgolden@gmail.com
+          </Typography>
           
           <Typography
             variant="body2"
@@ -46,7 +47,7 @@ Born in the jungle with vision, courage, and golden energy. Not following a map 
               fontWeight: 500,
             }}
           >
-            ©2025 $GSnub. All rights reserved.
+            © 2025 $GSnub — All rights reserved.
           </Typography>
         </Box>
       </Container>
