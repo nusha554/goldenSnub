@@ -136,11 +136,11 @@
     transform-origin: top;
 
     &-link {
-      display: block;
+      display: flex;
       width: 100%;
-      background: $background;
+      background: rgba(53, 89, 82, 1);
       border: none;
-      color: $dark-green;
+      color: $cream;
       font-family: $font-heading;
       font-size: 1rem;
       font-weight: 700;
@@ -150,7 +150,6 @@
       transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
       position: relative;
       min-height: 44px;
-      display: flex;
       align-items: center;
       -webkit-tap-highlight-color: transparent;
       -webkit-touch-callout: none;
@@ -160,6 +159,7 @@
       -ms-user-select: none;
       user-select: none;
       overflow: hidden;
+      z-index: 2;
 
       &::before {
         content: '';
@@ -199,16 +199,16 @@
 
       &:hover,
       &--active {
-        background: $golden;
-        color: $coral;
         transform: translateX(8px);
+        z-index: 3;
       }
 
       &:active {
-        background: $golden;
-        color: $coral;
+        background: $golden !important;
+        color: $dark-green !important;
         transform: translateX(8px) scale(0.98);
         transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        z-index: 3;
       }
     }
   }

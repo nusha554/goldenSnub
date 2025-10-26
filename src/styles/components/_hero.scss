@@ -228,6 +228,14 @@
   }
 }
 
+@media (min-width: 0px) {
+  .css-3mdyc5-MuiTypography-root {
+    /* margin-top: -3rem; */
+    margin-bottom: 11rem;
+    font-size: 1.6rem;
+  }
+}
+
 @media (max-width: 360px) {
   .hero {
     &__title {

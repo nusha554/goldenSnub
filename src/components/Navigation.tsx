@@ -107,15 +107,15 @@ const Navigation: React.FC = () => {
         >
           <motion.span
             animate={{ rotate: isOpen ? 45 : 0, y: isOpen ? 6 : 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.08, ease: "easeOut" }}
           />
           <motion.span
             animate={{ opacity: isOpen ? 0 : 1 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.05, ease: "easeOut" }}
           />
           <motion.span
             animate={{ rotate: isOpen ? -45 : 0, y: isOpen ? -6 : 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.08, ease: "easeOut" }}
           />
         </motion.button>
       </div>
