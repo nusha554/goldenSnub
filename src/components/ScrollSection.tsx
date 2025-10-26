@@ -5,10 +5,11 @@ import { ScrollSectionProps } from '../types';
 const ScrollSection: React.FC<ScrollSectionProps> = ({ 
   children, 
   className, 
+  id,
   ...props 
 }) => {
   return (
-    <section className={className}>
+    <section className={className} id={id}>
       <div className="section-content" {...props}>
         {children}
       </div>

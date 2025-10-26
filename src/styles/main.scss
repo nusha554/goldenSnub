@@ -19,11 +19,26 @@
   position: relative;
   scroll-margin-top: 80px;
   transition: all 0.3s ease;
+
+  @media (max-width: $breakpoint-md) {
+    padding: 3rem 1.5rem;
+    min-height: 90vh;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    padding: 2rem 1rem;
+    min-height: 85vh;
+  }
 }
 
 .section-content {
   max-width: 800px;
   text-align: center;
+
+  @media (max-width: $breakpoint-sm) {
+    max-width: 100%;
+    padding: 0 0.5rem;
+  }
 }
 
 .section-content h2 {
@@ -35,6 +50,17 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+
+  @media (max-width: $breakpoint-md) {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
 }
 
 .section-content p {
@@ -44,6 +70,17 @@
   color: #E37769;
   max-width: 600px;
   margin: 0 auto 3rem auto;
+
+  @media (max-width: $breakpoint-md) {
+    font-size: 0.95rem;
+    margin: 0 auto 2rem auto;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin: 0 auto 1.5rem auto;
+  }
 }
 
 .section-content strong {
@@ -65,4 +102,17 @@
   border-left: 4px solid #EAB63E;
   background: rgba(53, 89, 82, 0.1);
   border-radius: 8px;
+
+  @media (max-width: $breakpoint-md) {
+    font-size: 1.3rem;
+    margin: 1.5rem 0;
+    padding: 0.8rem;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    font-size: 1.1rem;
+    margin: 1rem 0;
+    padding: 0.6rem;
+    border-left: 3px solid #EAB63E;
+  }
 }

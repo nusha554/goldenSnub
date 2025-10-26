@@ -14,50 +14,20 @@ const JoinSection: React.FC = () => {
 
   return (
     <Box
+      id="join"
       ref={ref}
+      className="join"
       sx={{
-        position: 'relative',
-        minHeight: '100vh',
         backgroundImage: `url(${jungleBackground})`,
         backgroundSize: 'cover',
-        backgroundPosition: 'center',
+        backgroundPosition: { xs: '58% center', md: 'center' },
         backgroundRepeat: 'no-repeat',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        // Disable CSS transitions to prevent conflicts with Framer Motion
-        transition: 'none !important',
-        '& *': {
-          transition: 'none !important',
-        },
-        '&::before': {
-          content: '""',
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          backgroundColor: 'rgba(0, 0, 0, 0.4)',
-          zIndex: 1,
-        },
-        '&::after': {
-          content: '""',
-          position: 'absolute',
-          bottom: 0,
-          left: 0,
-          width: '100%',
-          height: '60px',
-          background: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 100' preserveAspectRatio='none'%3E%3Cpath d='M0,100 L50,80 L100,90 L150,70 L200,85 L250,75 L300,80 L350,65 L400,75 L450,60 L500,70 L550,55 L600,65 L650,50 L700,60 L750,45 L800,55 L850,40 L900,50 L950,35 L1000,45 L1000,100 Z' fill='%23FAF6E7'/%3E%3C/svg%3E")`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'bottom',
-          backgroundRepeat: 'no-repeat',
-          zIndex: 3,
-        },
       }}
     >
-      <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 2 }}>
-        <Box sx={{ py: 8, textAlign: 'center' }}>
+      <Container maxWidth="lg" className="join__container">
+        <Box className="join__content">
           <motion.div
+            className="motion-title-wrapper"
             initial={{ opacity: 0, y: 50 }}
             animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
             transition={{ 
@@ -70,21 +40,10 @@ const JoinSection: React.FC = () => {
             <Typography
               variant="h2"
               component="h1"
-              sx={{
-                fontWeight: 'bold',
-                mb: 6,
-                fontSize: { xs: '2rem', md: '2rem' },
-                color: 'white !important',
-                textShadow: '0 0 20px #EAB63E, 0 0 40px #EAB63E, 0 0 60px #EAB63E, 3px 3px 6px rgba(0,0,0,0.8)',
-                fontFamily: '"Libertinus Serif", serif !important',
-                mt: 4,
-                textAlign: 'center',
-                letterSpacing: '2px',
-                textTransform: 'uppercase',
-              }}
+              className="join__title"
             >
-              🐒The strength of the pack is the monkey,<br />
-              and the strength of the monkey is the pack. 🚀
+              The strength of the pack is the monkey,<br />
+              and the strength of the monkey is the pack.
             </Typography>
           </motion.div>
           
@@ -102,13 +61,7 @@ const JoinSection: React.FC = () => {
             <Typography
               variant="h6"
               component="p"
-              sx={{
-                mb: 3,
-                mt: 4,
-                fontSize: { xs: '1rem', md: '1.2rem' },
-                color: 'white !important',
-                textShadow: '0 0 10px #EAB63E, 0 0 20px #EAB63E, 0 0 30px #EAB63E, 2px 2px 4px rgba(0,0,0,0.7)',
-              }}
+              className="join__subtitle"
             >
               This isn't just a project — it's a <strong>jungle uprising</strong>.
             </Typography>
@@ -127,12 +80,7 @@ const JoinSection: React.FC = () => {
             <Typography
               variant="h6"
               component="p"
-              sx={{
-                mb: 3,
-                fontSize: { xs: '1rem', md: '1.2rem' },
-                color: 'white !important',
-                textShadow: '0 0 10px #EAB63E, 0 0 20px #EAB63E, 0 0 30px #EAB63E, 2px 2px 4px rgba(0,0,0,0.7)',
-              }}
+              className="join__description"
             >
               When one ape wins, <strong>we all win</strong>.
             </Typography>
@@ -151,12 +99,7 @@ const JoinSection: React.FC = () => {
             <Typography
               variant="h6"
               component="p"
-              sx={{
-                mb: 3,
-                fontSize: { xs: '1rem', md: '1.2rem' },
-                color: 'white !important',
-                textShadow: '0 0 10px #EAB63E, 0 0 20px #EAB63E, 0 0 30px #EAB63E, 2px 2px 4px rgba(0,0,0,0.7)',
-              }}
+              className="join__description"
             >
               Join the family. Spread the memes. Hold the line.
             </Typography>
@@ -175,12 +118,7 @@ const JoinSection: React.FC = () => {
             <Typography
               variant="h5"
               component="p"
-              sx={{
-                mb: 6,
-                fontSize: { xs: '1.2rem', md: '1.5rem' },
-                color: 'white !important',
-                textShadow: '0 0 10px #EAB63E, 0 0 20px #EAB63E, 0 0 30px #EAB63E, 2px 2px 4px rgba(0,0,0,0.7)',
-              }}
+              className="join__description"
             >
               Because we're not leaving this planet until we see the moon reflect in our sunglasses.🌕
             </Typography>

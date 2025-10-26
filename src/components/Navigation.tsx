@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 const Navigation: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
+  const [isMobile, setIsMobile] = useState(false);
 
   const sections = [
     { id: 'hero', label: 'Home', href: '#hero' },
@@ -14,15 +15,54 @@ const Navigation: React.FC = () => {
   ];
 
   const scrollToSection = (sectionId: string) => {
+    console.log('Scrolling to section:', sectionId); // Debug log
     const element = document.getElementById(sectionId);
+    console.log('Element found:', element); // Debug log
+    
     if (element) {
-      element.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-      });
+      // Add a small delay to ensure the menu closes before scrolling
+      setTimeout(() => {
+        element.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        });
+      }, 100);
+    } else {
+      console.error('Section not found:', sectionId);
     }
     setIsOpen(false);
   };
+
+  // Detect mobile device
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Close mobile menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: Event) => {
+      const target = event.target as HTMLElement;
+      if (isOpen && !target.closest('.navigation')) {
+        setIsOpen(false);
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener('touchstart', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
+    };
+  }, [isOpen]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -64,7 +104,7 @@ const Navigation: React.FC = () => {
               key={section.id}
               className={`navigation__link ${activeSection === section.id ? 'navigation__link--active' : ''}`}
               onClick={() => scrollToSection(section.id)}
-              whileHover={{ scale: 1.05, y: -2 }}
+              whileHover={!isMobile ? { scale: 1.05, y: -2 } : {}}
               whileTap={{ scale: 0.95 }}
               transition={{ duration: 0.2 }}
             >
@@ -76,7 +116,7 @@ const Navigation: React.FC = () => {
         <motion.button
           className="navigation__mobile-toggle"
           onClick={() => setIsOpen(!isOpen)}
-          whileHover={{ scale: 1.05 }}
+          whileHover={!isMobile ? { scale: 1.05 } : {}}
           whileTap={{ scale: 0.95 }}
         >
           <motion.span
@@ -107,11 +147,15 @@ const Navigation: React.FC = () => {
               <motion.button
                 key={section.id}
                 className={`navigation__mobile-menu-link ${activeSection === section.id ? 'navigation__mobile-menu-link--active' : ''}`}
-                onClick={() => scrollToSection(section.id)}
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  scrollToSection(section.id);
+                }}
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.3, delay: index * 0.1 }}
-                whileHover={{ x: 10 }}
+                whileHover={!isMobile ? { x: 10 } : {}}
                 whileTap={{ scale: 0.95 }}
               >
                 {section.label}

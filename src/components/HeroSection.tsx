@@ -26,12 +26,13 @@ const HeroSection: React.FC = () => {
 
   return (
     <Box
+        id="hero"
         sx={{
           position: 'relative',
           minHeight: '100vh',
           backgroundImage: `url(${monkeyImage})`,
           backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          backgroundPosition: { xs: '75% center', md: 'center' },
           backgroundRepeat: 'no-repeat',
           display: 'flex',
           alignItems: 'center',
@@ -51,10 +52,15 @@ const HeroSection: React.FC = () => {
       <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 2 }}>
           <Box
             sx={{
-              textAlign: 'left',
+              textAlign: { xs: 'center', md: 'left' },
               color: '#3988A4',
-              py: 8,
-              maxWidth: '600px',
+              py: { xs: 6, md: 8 },
+              maxWidth: { xs: '100%', md: '600px' },
+              px: { xs: 2, md: 0 },
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: { xs: 'space-between', md: 'flex-start' },
+              minHeight: { xs: 'calc(100vh - 80px)', md: 'auto' },
             }}
           >
             <motion.div
@@ -67,14 +73,15 @@ const HeroSection: React.FC = () => {
                 component="h1"
                 sx={{
                   fontWeight: 'bold',
-                  mb: 4,
+                  mb: { xs: 3, md: 4 },
+                  mt: { xs: 4, md: 0 },
                   textShadow: `
                     0 0 10px rgba(234, 182, 62, 0.6),
                     0 0 20px rgba(234, 182, 62, 0.5),
                     0 0 30px rgba(234, 182, 62, 0.4),
                     2px 2px 4px rgba(0,0,0,0.5)
                   `,
-                  fontSize: { xs: '2rem', md: '4.5rem' },
+                  fontSize: { xs: '3.5rem', md: '4.5rem' },
                   color: '#355952 !important',
                   fontFamily: '"Libertinus Serif", serif !important',
                   filter: 'drop-shadow(0 0 4px rgba(234, 182, 62, 0.3))',
@@ -94,10 +101,10 @@ const HeroSection: React.FC = () => {
                 component="h2"
                 sx={{
                   fontWeight: 'bold',
-                  mb: 4,
+                  mb: { xs: 3, md: 4 },
                   color: '#EAB63E !important',
                   textShadow: '2px 2px 4px rgba(0,0,0,0.5)',
-                  fontSize: { xs: '1.5rem', md: '2.2rem' },
+                  fontSize: { xs: '1.8rem', md: '2.2rem' },
                   fontFamily: '"Libertinus Serif", serif !important',
                 }}
               >
@@ -114,9 +121,9 @@ const HeroSection: React.FC = () => {
                 variant="h5"
                 component="p"
                 sx={{
-                  mb: 6,
+                  mb: { xs: 8, md: 6 },
                   textShadow: '1px 1px 2px rgba(0,0,0,0.5)',
-                  fontSize: { xs: '1.2rem', md: '1.5rem' },
+                  fontSize: { xs: '1.4rem', md: '1.5rem' },
                   color: '#355952 !important',
                 }}
               >
@@ -137,9 +144,9 @@ const HeroSection: React.FC = () => {
                   backgroundColor: '#EAB63E',
                   color: '#E37769',
                   fontWeight: '900',
-                  px: 4,
-                  py: 1.5,
-                  fontSize: '1.2rem',
+                  px: { xs: 3, md: 4 },
+                  py: { xs: 1.2, md: 1.5 },
+                  fontSize: { xs: '1rem', md: '1.2rem' },
                   borderRadius: '25px',
                   textTransform: 'none',
                   fontFamily: '"Libertinus Serif", serif !important',
@@ -165,8 +172,8 @@ const HeroSection: React.FC = () => {
               <Stack 
                 direction="row" 
                 spacing={1.5} 
-                justifyContent="flex-start" 
-                sx={{ mt: 6 }}
+                justifyContent={{ xs: 'center', md: 'flex-start' }}
+                sx={{ mt: { xs: 8, md: 6 } }}
                 flexWrap="wrap"
               >
                   <motion.div

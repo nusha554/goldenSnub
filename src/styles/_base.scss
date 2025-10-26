@@ -23,6 +23,15 @@ body {
   overflow-x: hidden;
   -webkit-text-size-adjust: 100%;
   touch-action: manipulation;
+  font-size: 16px;
+
+  @media (max-width: $breakpoint-sm) {
+    font-size: 14px;
+  }
+
+  @media (max-width: 360px) {
+    font-size: 13px;
+  }
 }
 
 .libre-baskerville-regular {
@@ -82,5 +91,27 @@ body {
   &.social-button--large {
     width: 80px !important;
     height: 80px !important;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    width: 50px !important;
+    height: 50px !important;
+    border-width: 1.5px !important;
+
+    &.social-button--large {
+      width: 60px !important;
+      height: 60px !important;
+    }
+  }
+
+  @media (max-width: 360px) {
+    width: 45px !important;
+    height: 45px !important;
+    border-width: 1px !important;
+
+    &.social-button--large {
+      width: 50px !important;
+      height: 50px !important;
+    }
   }
 }

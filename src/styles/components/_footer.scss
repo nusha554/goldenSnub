@@ -85,6 +85,7 @@
 @media (max-width: $breakpoint-sm) {
   .footer {
     padding: $spacing-lg $spacing-sm;
+    min-height: 90vh;
     
     &__title {
       font-size: 1.8rem;
@@ -104,6 +105,28 @@
     
     &__text {
       font-size: 0.6rem !important;
+    }
+  }
+}
+
+@media (max-width: 360px) {
+  .footer {
+    padding: $spacing-md $spacing-xs;
+    
+    &__title {
+      font-size: 1.6rem;
+    }
+    
+    &__description {
+      font-size: 0.85rem;
+    }
+    
+    &__subtitle {
+      font-size: 0.65rem !important;
+    }
+    
+    &__text {
+      font-size: 0.55rem !important;
     }
   }
 }
