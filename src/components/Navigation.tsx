@@ -4,7 +4,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 const Navigation: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return window.innerWidth <= 768;
+    }
+    return false;
+  });
 
   const sections = [
     { id: 'hero', label: 'Home', href: '#hero' },
@@ -31,10 +36,15 @@ const Navigation: React.FC = () => {
   // Detect mobile device
   useEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 768);
+      const newIsMobile = window.innerWidth <= 768;
+      setIsMobile(prevIsMobile => {
+        if (prevIsMobile !== newIsMobile) {
+          return newIsMobile;
+        }
+        return prevIsMobile;
+      });
     };
     
-    checkMobile();
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
@@ -129,9 +139,10 @@ const Navigation: React.FC = () => {
         </motion.button>
       </div>
 
-      <AnimatePresence>
-        {isOpen && (
+      <AnimatePresence mode="wait">
+        {isOpen && isMobile && (
           <motion.div
+            key="mobile-menu"
             className="navigation__mobile-menu"
             initial={{ opacity: 0, height: 0, y: -10 }}
             animate={{ opacity: 1, height: 'auto', y: 0 }}
