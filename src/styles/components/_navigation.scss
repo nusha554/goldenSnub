@@ -128,9 +128,8 @@
     top: 100%;
     left: 0;
     right: 0;
-    background: rgba(53, 89, 82, 0.9);
+    background: rgba(53, 89, 82, 1);
     backdrop-filter: blur(20px);
-    border-top: none;
     padding: $spacing-sm 0;
     z-index: $z-navigation + 1;
     overflow: hidden;
@@ -148,7 +147,7 @@
       cursor: pointer;
       padding: $spacing-sm $spacing-lg;
       text-align: left;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
       position: relative;
       min-height: 44px;
       display: flex;
@@ -160,6 +159,7 @@
       -moz-user-select: none;
       -ms-user-select: none;
       user-select: none;
+      overflow: hidden;
 
       &::before {
         content: '';
@@ -170,24 +170,45 @@
         height: 100%;
         background: $coral;
         transform: scaleY(0);
-        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        transform-origin: bottom;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(90deg, transparent 0%, rgba(229, 192, 103, 0.1) 50%, transparent 100%);
+        transform: translateX(-100%);
+        transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        z-index: 1;
       }
 
       &:hover::before,
       &--active::before {
         transform: scaleY(1);
+        transform-origin: top;
+      }
+
+      &:hover::after {
+        transform: translateX(100%);
       }
 
       &:hover,
       &--active {
         background: $golden;
         color: $coral;
+        transform: translateX(8px);
       }
 
       &:active {
         background: $golden;
         color: $coral;
-        transform: scale(0.98);
+        transform: translateX(8px) scale(0.98);
+        transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
       }
     }
   }

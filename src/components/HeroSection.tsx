@@ -187,9 +187,15 @@ const HeroSection: React.FC = () => {
                   textShadow: '1px 1px 2px rgba(0,0,0,0.5)',
                   fontSize: { xs: '1.4rem', md: '1.5rem' },
                   color: '#355952 !important',
+                  display: { xs: 'block', md: 'inline' },
                 }}
               >
-                Built for the long run. Powered by purpose.
+                <Box component="span" sx={{ display: { xs: 'block', md: 'inline' } }}>
+                  Built for the long run.
+                </Box>
+                <Box component="span" sx={{ display: { xs: 'block', md: 'inline' } }}>
+                  Powered by purpose.
+                </Box>
               </Typography>
             </motion.div>
 
