@@ -1,23 +1,20 @@
-import React, { useState, useEffect, useCallback, useMemo } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Navigation: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
-  const [isMobile, setIsMobile] = useState(() => {
-    if (typeof window !== 'undefined') {
-      return window.innerWidth <= 768;
-    }
-    return false;
-  });
+  
+  // Static mobile detection - never changes during component lifecycle
+  const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
 
-  const sections = useMemo(() => [
+  const sections = [
     { id: 'hero', label: 'Home', href: '#hero' },
     { id: 'welcome', label: 'About', href: '#welcome' },
     { id: 'story', label: 'Story', href: '#story' },
     { id: 'tokenomics', label: 'Tokenomics', href: '#tokenomics' },
     { id: 'join', label: 'Join', href: '#join' },
-  ], []);
+  ];
 
   const scrollToSection = useCallback((sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -31,30 +28,6 @@ const Navigation: React.FC = () => {
       }, 100);
     }
     setIsOpen(false);
-  }, []);
-
-  // Detect mobile device
-  useEffect(() => {
-    let timeoutId: NodeJS.Timeout;
-    
-    const checkMobile = () => {
-      clearTimeout(timeoutId);
-      timeoutId = setTimeout(() => {
-        const newIsMobile = window.innerWidth <= 768;
-        setIsMobile(prevIsMobile => {
-          if (prevIsMobile !== newIsMobile) {
-            return newIsMobile;
-          }
-          return prevIsMobile;
-        });
-      }, 100);
-    };
-    
-    window.addEventListener('resize', checkMobile);
-    return () => {
-      window.removeEventListener('resize', checkMobile);
-      clearTimeout(timeoutId);
-    };
   }, []);
 
   // Close mobile menu when clicking outside
@@ -147,22 +120,21 @@ const Navigation: React.FC = () => {
         </motion.button>
       </div>
 
-      <AnimatePresence>
-        {isOpen && isMobile && (
-          <motion.div
-            key="mobile-menu"
-            className="navigation__mobile-menu"
-            initial={{ opacity: 0, height: 0, y: -10 }}
-            animate={{ opacity: 1, height: 'auto', y: 0 }}
-            exit={{ opacity: 0, height: 0, y: -10 }}
-            transition={{ 
-              duration: 0.4, 
-              ease: [0.4, 0, 0.2, 1],
-              height: { duration: 0.4, ease: [0.4, 0, 0.2, 1] },
-              opacity: { duration: 0.3, ease: "easeOut" },
-              y: { duration: 0.3, ease: "easeOut" }
-            }}
-          >
+      {isMobile && (
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              key="mobile-menu"
+              className="navigation__mobile-menu"
+              initial={{ opacity: 0, scaleY: 0 }}
+              animate={{ opacity: 1, scaleY: 1 }}
+              exit={{ opacity: 0, scaleY: 0 }}
+              transition={{ 
+                duration: 0.3, 
+                ease: "easeOut"
+              }}
+              style={{ transformOrigin: "top" }}
+            >
             {sections.map((section) => (
               <motion.button
                 key={section.id}
@@ -172,21 +144,15 @@ const Navigation: React.FC = () => {
                   e.stopPropagation();
                   scrollToSection(section.id);
                 }}
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ 
-                  duration: 0.3, 
-                  delay: 0.1,
-                  ease: [0.4, 0, 0.2, 1]
-                }}
                 whileTap={{ scale: 0.95 }}
               >
                 {section.label}
               </motion.button>
             ))}
-          </motion.div>
-        )}
-      </AnimatePresence>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      )}
     </motion.nav>
   );
 };
