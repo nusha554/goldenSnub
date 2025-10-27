@@ -54,7 +54,7 @@ const WelcomeSection: React.FC = () => {
             style={{ willChange: 'transform, opacity' }}
           >
             <p className="welcome__subtitle">
-              The Golden Snub Monkey isn't just a coin — it's a long-term movement built on honesty, transparency, and trust. 🌕
+              The Golden Snub Monkey is a creative crypto community inspired by transparency and collaboration. 🌕
             </p>
             
             <p className="welcome__text">
@@ -62,7 +62,7 @@ const WelcomeSection: React.FC = () => {
             </p>
             
             <p className="welcome__text">
-              Our jungle runs on truth, creativity, and connection. Every holder matters, every voice counts, and every banana builds the future. 🍌
+              Our jungle runs on truth, creativity, and connection. Every holder matters, every voice counts, and every banana counts — even the squishy ones. 🍌
             </p>
             
             <p className="welcome__text">

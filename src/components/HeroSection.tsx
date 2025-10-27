@@ -191,6 +191,8 @@ const HeroSection: React.FC = () => {
                   textShadow: '2px 2px 4px rgba(0,0,0,0.5)',
                   fontSize: { xs: '1.4em', md: '2.2rem' },
                   fontFamily: '"Libertinus Serif", serif !important',
+                  WebkitTextStroke: '0.02rem #355952',
+                  textStroke: '0.1rem #355952',
                 }}
               >
                 The Golden Revolution Begins
@@ -216,17 +218,17 @@ const HeroSection: React.FC = () => {
               >
                 <Box component="span" sx={{ 
                   display: { xs: 'block', md: 'inline' },
-                  WebkitTextStroke: '0.3px rgba(250, 246, 231, 0.3)',
-                  textStroke: '0.3px rgba(250, 246, 231, 0.3)',
+                  WebkitTextStroke: '0.014rem #EAB63E',
+                  textStroke: '1px #EAB63E',
                 }}>
-                  Built for the long run.
+                  Heart in the jungle,
                 </Box>
                 <Box component="span" sx={{ 
                   display: { xs: 'block', md: 'inline' },
-                  WebkitTextStroke: '0.3px rgba(250, 246, 231, 0.3)',
-                  textStroke: '0.3px rgba(250, 246, 231, 0.3)',
+                  WebkitTextStroke: '0.014rem #EAB63E',
+                  textStroke: '1px #EAB63E',
                 }}>
-                  Powered by purpose.
+                  eyes on the moon.
                 </Box>
               </Typography>
             </motion.div>

@@ -21,7 +21,7 @@ const StorySection: React.FC = () => {
     },
     {
       title: "A Tribe That Moves as One.",
-      text: "This isn't a crowd chasing trends — it's a family growing in harmony.\nFree thinkers, dreamers, and builders connected by energy, integrity, and long-term vision. 🐒✨",
+      text: "This isn’t a crowd chasing trends — it’s a tribe building something real.\nFree thinkers, dreamers, and builders connected by energy, integrity, and long-term vision. 🐒✨",
       bgColor: "#E37769",
       image: image3
     }

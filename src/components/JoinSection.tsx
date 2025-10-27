@@ -143,7 +143,7 @@ const JoinSection: React.FC = () => {
               component="p"
               className="join__description"
             >
-              When one ape wins, <strong>we all win</strong>.
+              When one ape makes noise, <strong>the whole jungle starts to groove.</strong>.
             </Typography>
           </motion.div>
           
@@ -163,7 +163,7 @@ const JoinSection: React.FC = () => {
               className="join__description"
               sx={{ marginBottom: { xs: '2rem', md: '1rem' } }}
             >
-              Join the family. Spread the memes. Hold the line.
+              Join the family. Spread the memes. Keep the jungle loud.
             </Typography>
           </motion.div>
           
